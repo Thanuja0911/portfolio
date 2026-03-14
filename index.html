@@ -4,129 +4,1195 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thanuja Mudududla | Portfolio</title>
+  <title>Thanuja Mudududla | Software Engineer</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    :root {
+      --primary-color: #4f46e5;
+      --secondary-color: #06b6d4;
+      --dark-bg: #0f172a;
+      --card-bg: #ffffff;
+      --text-primary: #1e293b;
+      --text-secondary: #64748b;
+      --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --gradient-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #f8f9fa;
+      background-color: #f8fafc;
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
     }
-    header, footer {
-      background-color: #343a40;
-      color: white;
-      padding: 20px 0;
+
+    /* Smooth Scroll */
+    html {
+      scroll-behavior: smooth;
     }
-    nav a {
+
+    /* Navigation */
+    .navbar {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.5rem;
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-link {
+      color: var(--text-primary) !important;
+      font-weight: 500;
+      margin: 0 1rem;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--primary-color) !important;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--primary-color);
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 100px 0;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+      opacity: 0.3;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
       color: white;
-      margin: 0 15px;
+    }
+
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 5px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      margin-bottom: 2rem;
+      object-fit: cover;
+      animation: fadeInUp 0.8s ease;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      animation: fadeInUp 0.8s ease 0.2s both;
+    }
+
+    .hero .tagline {
+      font-size: 1.5rem;
+      font-weight: 300;
+      margin-bottom: 1rem;
+      opacity: 0.95;
+      animation: fadeInUp 0.8s ease 0.4s both;
+    }
+
+    .hero .subtitle {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      animation: fadeInUp 0.8s ease 0.6s both;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.8s ease 0.8s both;
+    }
+
+    .btn-custom {
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary-custom {
+      background: white;
+      color: var(--primary-color);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-primary-custom:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      color: var(--primary-color);
+    }
+
+    .btn-outline-custom {
+      background: transparent;
+      color: white;
+      border: 2px solid white;
+    }
+
+    .btn-outline-custom:hover {
+      background: white;
+      color: var(--primary-color);
+      transform: translateY(-2px);
+    }
+
+    /* Section Styling */
+    section {
+      padding: 80px 0;
+      position: relative;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--gradient-1);
+      margin: 1rem auto 2rem;
+      border-radius: 2px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+
+    /* Cards */
+    .card-custom {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      height: 100%;
+      border: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-custom::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-1);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .card-custom:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .card-custom:hover::before {
+      transform: scaleX(1);
+    }
+
+    /* Project Cards */
+    .project-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: white;
+    }
+
+    .project-card .card-custom:nth-child(4n+1) .project-icon {
+      background: var(--gradient-1);
+    }
+
+    .project-card .card-custom:nth-child(4n+2) .project-icon {
+      background: var(--gradient-2);
+    }
+
+    .project-card .card-custom:nth-child(4n+3) .project-icon {
+      background: var(--gradient-3);
+    }
+
+    .project-card .card-custom:nth-child(4n+4) .project-icon {
+      background: var(--gradient-4);
+    }
+
+    .project-card h4 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      color: var(--text-primary);
+    }
+
+    .project-card p {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .tech-tag {
+      background: #f1f5f9;
+      color: var(--primary-color);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .project-link {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .project-link:hover {
+      color: var(--secondary-color);
+      transform: translateX(4px);
+    }
+
+    /* Experience Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 30px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 40px;
+      margin-bottom: 3rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 0;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: white;
+      border: 3px solid var(--primary-color);
+      box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
+    }
+
+    .timeline-item h4 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
+    }
+
+    .timeline-date {
+      color: var(--primary-color);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .timeline-item p {
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    /* Skills Section */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .skill-category h5 {
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .skill-category i {
+      color: var(--primary-color);
+      font-size: 1.3rem;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-item {
+      background: white;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      border: 1px solid #e2e8f0;
+      transition: all 0.3s ease;
+    }
+
+    .skill-item:hover {
+      border-color: var(--primary-color);
+      background: rgba(79, 70, 229, 0.05);
+      transform: translateY(-2px);
+    }
+
+    /* Certifications */
+    .cert-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+
+    .cert-badge:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+      color: var(--primary-color);
+    }
+
+    .cert-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--gradient-1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    /* Contact Section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .contact-item:nth-child(1) .contact-icon {
+      background: var(--gradient-1);
+    }
+
+    .contact-item:nth-child(2) .contact-icon {
+      background: var(--gradient-2);
+    }
+
+    .contact-item:nth-child(3) .contact-icon {
+      background: var(--gradient-3);
+    }
+
+    .contact-item:nth-child(4) .contact-icon {
+      background: var(--gradient-4);
+    }
+
+    .contact-info h6 {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: var(--text-primary);
+    }
+
+    .contact-info a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-info a:hover {
+      color: var(--primary-color);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark-bg);
+      color: white;
+      padding: 3rem 0 2rem;
+      text-align: center;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .social-link {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
       text-decoration: none;
     }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    section {
-      padding: 60px 0;
-    }
-    .project, .cert-item, .experience-item {
+
+    .social-link:hover {
       background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-      margin-bottom: 20px;
+      color: var(--primary-color);
+      transform: translateY(-4px);
     }
-    .profile-img {
-      max-width: 160px;
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.6s ease both;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero .tagline {
+        font-size: 1.2rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-link {
+        margin: 0.5rem 0;
+      }
+    }
+
+    /* Scroll to top button */
+    .scroll-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
-      margin-top: 15px;
-      margin-bottom: 15px;
+      background: var(--gradient-1);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 999;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .scroll-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .scroll-to-top:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     }
   </style>
 </head>
 
 <body>
-  <header class="text-center">
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg">
     <div class="container">
-      <img src="profile.jpeg" alt="Thanuja Mudududla" class="profile-img">
-      <h1>Thanuja Mudududla</h1>
-      <p>Full-Stack Developer | Cloud Enthusiast</p>
-      <nav>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#certs">Certifications</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <a class="navbar-brand" href="#">TM</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
     </div>
-  </header>
+  </nav>
 
-  <main class="container">
-    <section id="about">
-      <h2>About Me</h2>
-      <p>I’m a Master’s student in Software Engineering at San Jose State University (graduating May 2026), passionate about building scalable systems, cloud-native architectures, and real-world applications. I’m seeking full-time or co-op opportunities in full-stack development, DevOps, or cloud engineering. </p>
-    </section>
-
-    <section id="experience">
-    <h2>Experience</h2>
-    <div class="experience-item">
-        <h4>Teaching Assistant - San Jose State University <small class="text-muted">| Aug 2025 – Present</small></h4>
-        <p>As a Teaching Assistant for the AWS (CMPE 281) course at SJSU, I design and deliver hands-on labs using Terraform to teach core AWS services such as EC2, S3, IAM, VPC, and ECS. I lead study sessions, guide students in building scalable and secure architectures, and support their preparation for the AWS Solutions Architect exam. I also collaborate with faculty to refine course material and provide detailed feedback on assignments to strengthen technical accuracy and design skills.</p>
-    </div>
-    <div class="experience-item">
-        <h4>Software Engineer - Truminds Software Systems <small class="text-muted">| Jan 2022 – Jun 2024</small></h4>
-        <p>Contributed to building a full-stack maritime network management platform using React and Node.js. Developed dynamic UI components, implemented backend services with optimized SQL queries, and managed source control with Git. Deployed scalable applications on AWS ECS, integrating CI/CD pipelines and monitoring tools for efficient production workflows.</p>
-    </div>
-    <div class="experience-item">
-        <h4>Backend Intern - C3 Experiential Learning <small class="text-muted">| Mar 2021 – May 2021</small></h4>
-        <p>Built scalable LMS backend with Django. Improved SQL query performance and schema design.</p>
-    </div>
-    </section>      
-
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project">
-          <h4>ONE STEP</h4>
-          <p>Microservices-based HR onboarding system using MEAN stack and AWS Lambda.</p>
-          <a href="https://github.com/Thanuja0911/onboarding-portal-cmpe-272" target="_blank">GitHub Repo</a>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <img src="profile.jpeg" alt="Thanuja Mudududla" class="profile-img">
+        <h1>Thanuja Mudududla</h1>
+        <p class="tagline">Software Engineer | AI Enthusiast | Cloud Native Developer</p>
+        <p class="subtitle">Building scalable systems and intelligent applications • MS Software Engineering @ SJSU</p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn-custom btn-primary-custom">
+            <i class="fas fa-envelope"></i> Get In Touch
+          </a>
+          <a href="https://github.com/Thanuja0911" target="_blank" class="btn-custom btn-outline-custom">
+            <i class="fab fa-github"></i> View GitHub
+          </a>
         </div>
-        <div class="project">
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="bg-white">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-subtitle">
+        I'm a Master's student in Software Engineering at San Jose State University (graduating May 2026), 
+        passionate about building scalable cloud native systems, AI powered applications, and real world solutions. 
+        With 2.5+ years of professional experience at Truminds Software Systems, I specialize in full stack development, 
+        microservices architecture, and modern DevOps practices. Currently seeking full time opportunities in 
+        software engineering, AI/ML, and cloud engineering roles.
+      </p>
+      <div class="row mt-5">
+        <div class="col-md-4 mb-4">
+          <div class="card-custom text-center">
+            <div style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;">
+              <i class="fas fa-code"></i>
+            </div>
+            <h5>Full Stack Development</h5>
+            <p class="text-muted">React, Angular, Node.js, Spring Boot, Python</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card-custom text-center">
+            <div style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;">
+              <i class="fas fa-brain"></i>
+            </div>
+            <h5>AI & Machine Learning</h5>
+            <p class="text-muted">LLMs, RAG, AutoGen, LangChain, GenAI</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card-custom text-center">
+            <div style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;">
+              <i class="fas fa-cloud"></i>
+            </div>
+            <h5>Cloud & DevOps</h5>
+            <p class="text-muted">AWS, Docker, Kubernetes, Terraform, CI/CD</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience">
+    <div class="container">
+      <h2 class="section-title">Experience</h2>
+      <p class="section-subtitle">
+        2.5+ years of professional software development experience building scalable systems
+      </p>
+      <div class="timeline">
+        <div class="timeline-item fade-in-up">
+          <h4>Teaching Assistant - AWS</h4>
+          <span class="timeline-date"><i class="fas fa-building"></i> San Jose State University | Aug 2025 – Dec 2025</span>
+          <p>
+            Designed hands-on AWS labs using Terraform to teach core services including EC2, S3, IAM, VPC, and ECS. 
+            Led study sessions guiding 50+ students in building scalable and secure cloud architectures. Collaborated 
+            with faculty to refine course material and supported students preparing for AWS Solutions Architect certification.
+          </p>
+        </div>
+
+        <div class="timeline-item fade-in-up">
+          <h4>Software Development Engineer</h4>
+          <span class="timeline-date"><i class="fas fa-building"></i> Truminds Software Systems | Jan 2022 – Jun 2024</span>
+          <p>
+            Built full stack maritime network management platform using React and Node.js serving 500+ users. 
+            Reduced API response times by 70% through backend optimization and GraphQL integration. Containerized 
+            microservices with Docker and deployed on AWS ECS, implementing CI/CD pipelines with Jenkins. 
+            Optimized 250+ React components reducing page load times from 5.6s to 2s. Improved database 
+            performance by 60% through SQL query optimization and schema design.
+          </p>
+        </div>
+
+        <div class="timeline-item fade-in-up">
+          <h4>Backend Developer Intern</h4>
+          <span class="timeline-date"><i class="fas fa-building"></i> C3 Experiential Learning | Mar 2021 – May 2021</span>
+          <p>
+            Developed scalable Learning Management System backend using Python (Django) with RESTful APIs, 
+            serving 100+ schools. Reduced system latency by 25% through SQL query optimization and improved 
+            schema design. Implemented OAuth 2.0 and JWT based authentication for secure API access.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="bg-white">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-subtitle">
+        Building intelligent systems and scalable applications with modern technologies
+      </p>
+      <div class="row project-card">
+        <div class="col-lg-6 mb-4 fade-in-up">
+          <div class="card-custom">
+            <div class="project-icon">
+              <i class="fas fa-robot"></i>
+            </div>
+            <h4>AutoGen RAG Group Chat</h4>
+            <p>
+              Built RAG powered multi agent AI system using AutoGen and Claude Code where 5 specialized agents 
+              collaborate autonomously to solve complex coding problems. Implemented RAG using ChromaDB and 
+              sentence transformers to ground AI responses in real documentation, reducing hallucinations.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">AutoGen</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">LLMs</span>
+              <span class="tech-tag">ChromaDB</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Thanuja0911/AutoGen-RAG-MultiAgent-Groupchat" target="_blank" class="project-link">
+                <i class="fab fa-github"></i> View Code
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 mb-4 fade-in-up">
+          <div class="card-custom">
+            <div class="project-icon">
+              <i class="fas fa-database"></i>
+            </div>
+            <h4>Data Trust</h4>
+            <p>
+              Building enterprise grade policy aware RAG system for secure knowledge querying. Deployed self hosted 
+              models (vLLM/Ollama) achieving 0.7s P95 responsiveness. Implemented role based access control with 
+              LangChain and FastAPI, ensuring compliance validation and secure AI response generation.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">LangChain</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">AWS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 mb-4 fade-in-up">
+          <div class="card-custom">
+            <div class="project-icon">
+              <i class="fas fa-table"></i>
+            </div>
+            <h4>BookMyTable</h4>
+            <p>
+              Full stack table reservation platform with React frontend and Spring Boot backend. Implemented 
+              role based dashboards for customers, managers, and admins. Deployed using Docker and Kubernetes, 
+              achieving 29% deployment efficiency improvement and 25% resource utilization reduction.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Spring Boot</span>
+              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">Kubernetes</span>
+              <span class="tech-tag">AWS</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Thanuja0911/bookmytable" target="_blank" class="project-link">
+                <i class="fab fa-github"></i> View Code
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 mb-4 fade-in-up">
+          <div class="card-custom">
+            <div class="project-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h4>ONE STEP</h4>
+            <p>
+              Microservices based HR onboarding system using MEAN stack (Angular, Node.js). Implemented RBAC and 
+              Google SSO for secure authentication. Deployed serverless workflows with AWS Lambda and DynamoDB, 
+              reducing infrastructure costs by 70% through efficient cloud architecture.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag">Angular</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">AWS Lambda</span>
+              <span class="tech-tag">DynamoDB</span>
+              <span class="tech-tag">Terraform</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/Thanuja0911/onboarding_hr_portal" target="_blank" class="project-link">
+                <i class="fab fa-github"></i> View Code
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 mb-4 fade-in-up">
+          <div class="card-custom">
+            <div class="project-icon">
+              <i class="fas fa-house-crack"></i>
+            </div>
             <h4>Earthquake Detection using ML</h4>
-            <p>Developed GeoQuake, a real-time earthquake alert mobile app using Kotlin. Integrated CNN and Bi-LSTM models to detect seismic events from P and S wave data. Trained an NLP-driven EQ Transformer on the STEAD dataset for accurate seismic activity classification.</p>
-          </div>          
-        <div class="project">
-          <h4>Textify</h4>
-          <p>MERN stack app for text processing, including grammar checks and sentiment analysis.</p>
+            <p>
+              Developed GeoQuake, a real time earthquake alert mobile app using Flutter and Firebase. Integrated 
+              CNN and Bi-LSTM deep learning models for precise seismic feature extraction from P and S wave data. 
+              Achieved 89% model accuracy on STEAD dataset for seismic event classification.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">CNN</span>
+              <span class="tech-tag">Bi-LSTM</span>
+              <span class="tech-tag">Flutter</span>
+              <span class="tech-tag">Firebase</span>
+            </div>
+          </div>
         </div>
-        <div class="project">
-          <h4>e-Pharmacy-App</h4>
-          <p>Online pharmacy with real-time location-based ordering and OCR prescription parsing.</p>
-          <a href="https://github.com/suma2001/e-Pharmacy-App" target="_blank">GitHub Repo</a>
+
+        <div class="col-lg-6 mb-4 fade-in-up">
+          <div class="card-custom">
+            <div class="project-icon">
+              <i class="fas fa-pills"></i>
+            </div>
+            <h4>e-Pharmacy App</h4>
+            <p>
+              Online pharmacy platform with real time location based ordering and OCR prescription parsing. 
+              Built with MERN stack featuring automated medicine recommendations, secure payment processing, 
+              and delivery tracking. Implemented image recognition for prescription validation.
+            </p>
+            <div class="tech-tags">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Node.js</span>
+              <span class="tech-tag">MongoDB</span>
+              <span class="tech-tag">OCR</span>
+              <span class="tech-tag">Maps API</span>
+            </div>
+            <div class="project-links">
+              <a href="https://github.com/suma2001/e-Pharmacy-App" target="_blank" class="project-link">
+                <i class="fab fa-github"></i> View Code
+              </a>
+            </div>
+          </div>
         </div>
-      </section>
-
-    <section id="certs">
-      <h2>Certifications</h2>
-      <div class="cert-item">
-        <p><a href="https://aws.amazon.com/verification" target="_blank">AWS Certified Solutions Architect - Associate (Dec 2024 - Dec 2027)</a></p>
       </div>
-      <div class="cert-item">
-        <p><a href="https://www.cloudskillsboost.google/public_profiles/6cbc3717-3f96-40ec-b08b-7820ffec2525" target="_blank">GCP Cloud Engineering Track</a></p>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:mthanuja1120@gmail.com">mthanuja1120@gmail.com</a></p>
-      <p>Mobile: 669-340-6468</p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/thanuja-thanu-20" target="_blank">linkedin.com/in/thanuja-thanu-20</a></p>
-      <p>GitHub: <a href="https://github.com/Thanuja0911" target="_blank">github.com/Thanuja0911</a></p>
-    </section>
-  </main>
-
-  <footer class="text-center">
+  <!-- Skills Section -->
+  <section id="skills">
     <div class="container">
-      <p>© 2025 Thanuja Mudududla</p>
+      <h2 class="section-title">Technical Skills</h2>
+      <p class="section-subtitle">
+        Proficient in modern development tools and technologies
+      </p>
+      <div class="skills-grid">
+        <div class="card-custom fade-in-up">
+          <div class="skill-category">
+            <h5><i class="fas fa-code"></i> Programming Languages</h5>
+            <div class="skill-list">
+              <span class="skill-item">Python</span>
+              <span class="skill-item">Java</span>
+              <span class="skill-item">JavaScript</span>
+              <span class="skill-item">TypeScript</span>
+              <span class="skill-item">Go</span>
+              <span class="skill-item">C++</span>
+              <span class="skill-item">SQL</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-custom fade-in-up">
+          <div class="skill-category">
+            <h5><i class="fas fa-laptop-code"></i> Frontend</h5>
+            <div class="skill-list">
+              <span class="skill-item">React</span>
+              <span class="skill-item">Angular</span>
+              <span class="skill-item">React Native</span>
+              <span class="skill-item">Redux</span>
+              <span class="skill-item">HTML5</span>
+              <span class="skill-item">CSS3</span>
+              <span class="skill-item">Tailwind</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-custom fade-in-up">
+          <div class="skill-category">
+            <h5><i class="fas fa-server"></i> Backend</h5>
+            <div class="skill-list">
+              <span class="skill-item">Node.js</span>
+              <span class="skill-item">Spring Boot</span>
+              <span class="skill-item">Django</span>
+              <span class="skill-item">FastAPI</span>
+              <span class="skill-item">REST APIs</span>
+              <span class="skill-item">GraphQL</span>
+              <span class="skill-item">Microservices</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-custom fade-in-up">
+          <div class="skill-category">
+            <h5><i class="fas fa-database"></i> Databases</h5>
+            <div class="skill-list">
+              <span class="skill-item">MySQL</span>
+              <span class="skill-item">PostgreSQL</span>
+              <span class="skill-item">MongoDB</span>
+              <span class="skill-item">DynamoDB</span>
+              <span class="skill-item">Redis</span>
+              <span class="skill-item">ChromaDB</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-custom fade-in-up">
+          <div class="skill-category">
+            <h5><i class="fas fa-cloud"></i> Cloud & DevOps</h5>
+            <div class="skill-list">
+              <span class="skill-item">AWS</span>
+              <span class="skill-item">Docker</span>
+              <span class="skill-item">Kubernetes</span>
+              <span class="skill-item">Terraform</span>
+              <span class="skill-item">Jenkins</span>
+              <span class="skill-item">GitLab CI/CD</span>
+              <span class="skill-item">GitHub Actions</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-custom fade-in-up">
+          <div class="skill-category">
+            <h5><i class="fas fa-robot"></i> AI & ML</h5>
+            <div class="skill-list">
+              <span class="skill-item">LLMs</span>
+              <span class="skill-item">RAG</span>
+              <span class="skill-item">LangChain</span>
+              <span class="skill-item">AutoGen</span>
+              <span class="skill-item">TensorFlow</span>
+              <span class="skill-item">PyTorch</span>
+              <span class="skill-item">Vector DBs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section id="certifications" class="bg-white">
+    <div class="container">
+      <h2 class="section-title">Certifications</h2>
+      <p class="section-subtitle">
+        Certified in cloud technologies and continuously learning
+      </p>
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <a href="https://cp.certmetrics.com/amazon/en/public/verify/credential/3731b9febf414fc7b2693e978089d958" target="_blank" class="cert-badge fade-in-up">
+            <div class="cert-icon">
+              <i class="fab fa-aws"></i>
+            </div>
+            <div>
+              <h6>AWS Certified Solutions Architect - Associate</h6>
+              <small class="text-muted">Amazon Web Services • Valid: Dec 2024 - Dec 2027</small>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-6 mb-4">
+          <a href="https://www.cloudskillsboost.google/public_profiles/6cbc3717-3f96-40ec-b08b-7820ffec2525" target="_blank" class="cert-badge fade-in-up">
+            <div class="cert-icon">
+              <i class="fab fa-google"></i>
+            </div>
+            <div>
+              <h6>GCP Cloud Engineering Track</h6>
+              <small class="text-muted">Google Cloud Platform</small>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-subtitle">
+        I'm currently seeking full time opportunities. Let's connect!
+      </p>
+      <div class="contact-grid">
+        <div class="contact-item fade-in-up">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="contact-info">
+            <h6>Email</h6>
+            <a href="mailto:mthanuja1120@gmail.com">mthanuja1120@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="contact-item fade-in-up">
+          <div class="contact-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <div class="contact-info">
+            <h6>Phone</h6>
+            <a href="tel:+16693406468">(669) 340-6468</a>
+          </div>
+        </div>
+
+        <div class="contact-item fade-in-up">
+          <div class="contact-icon">
+            <i class="fab fa-linkedin"></i>
+          </div>
+          <div class="contact-info">
+            <h6>LinkedIn</h6>
+            <a href="https://linkedin.com/in/thanuja-thanu-20" target="_blank">thanuja-thanu-20</a>
+          </div>
+        </div>
+
+        <div class="contact-item fade-in-up">
+          <div class="contact-icon">
+            <i class="fab fa-github"></i>
+          </div>
+          <div class="contact-info">
+            <h6>GitHub</h6>
+            <a href="https://github.com/Thanuja0911" target="_blank">Thanuja0911</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="social-links">
+        <a href="https://github.com/Thanuja0911" target="_blank" class="social-link">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/in/thanuja-thanu-20" target="_blank" class="social-link">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="mailto:mthanuja1120@gmail.com" class="social-link">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+      <p style="opacity: 0.8;">© 2026 Thanuja Mudududla. Built with passion and code.</p>
+      <p style="opacity: 0.6; font-size: 0.9rem;">Graduating May 2026 • Seeking Full Time Opportunities</p>
     </div>
   </footer>
+
+  <!-- Scroll to Top Button -->
+  <div class="scroll-to-top" id="scrollBtn">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Scroll to top functionality
+    const scrollBtn = document.getElementById('scrollBtn');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        scrollBtn.classList.add('visible');
+      } else {
+        scrollBtn.classList.remove('visible');
+      }
+    });
+
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Navbar scroll effect
+    const navbar = document.querySelector('.navbar');
+    
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in-up').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+  </script>
 </body>
+
 </html>
