@@ -36,6 +36,16 @@ export default function Projects() {
     },
     {
       id: 4,
+      title: 'Gmail MCP Agent',
+      description: 'Natural-language chat interface backed by an MCP server exposing Gmail and Google People API tools. Uses Agno\'s agent framework to discover and call tools dynamically, with Google OAuth 2.0 login for authenticated per-user access.',
+      icon: '📧',
+      tags: ['Agno', 'MCP', 'Google OAuth 2.0', 'Gmail API', 'People API', 'FastAPI'],
+      github: 'https://github.com/Thanuja0911/agno-mcp-harness',
+      metrics: ['MCP Tools', 'OAuth Login', 'Natural Language to Tool Call'],
+      color: 'from-green-500 to-red-500'
+    },
+    {
+      id: 5,
       title: 'ONE STEP HR Platform',
       description: 'HR onboarding platform using MEAN stack with serverless architecture. Implemented RBAC, Google SSO, AWS Lambda microservices, and DynamoDB—reducing infrastructure costs by 70%.',
       icon: '🚀',
@@ -45,7 +55,7 @@ export default function Projects() {
       color: 'from-orange-500 to-red-500'
     },
     {
-      id: 5,
+      id: 6,
       title: 'BookMyTable',
       description: 'Restaurant reservation platform with real-time availability, user authentication, and payment integration. Built with MERN stack featuring responsive UI and scalable backend.',
       icon: '🍽️',
