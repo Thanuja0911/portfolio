@@ -4,6 +4,19 @@ import { Briefcase, Calendar } from 'lucide-react'
 export default function Experience() {
   const experiences = [
     {
+      title: 'Full Stack GenAI Developer',
+      company: 'Astoria AI (Remote, US)',
+      period: 'Aug 2026 – Present',
+      description: "Building Astoria's web platform and AI agent tooling with React, TypeScript, Next.js, Node.js, and Python.",
+      highlights: [
+        "Built Astoria's web platform using React, TypeScript, Next.js and Node.js, utilizing Codex to cut new feature development time by 30% through reusable component architecture",
+        'Designed an asynchronous job processing system with BullMQ and Redis, supporting 1000+ jobs with retry logic, priority queues and failure monitoring',
+        'Built MCP servers to integrate third parties (Gmail, People API, Outlook), handling agent tooling and complex mapping for user profile enrichment',
+        'Prototyped LLM scoring agents in Python using the Agno framework and Groq models, producing LinkedIn connection readiness scores across 6 weighted factors that business users could act on directly'
+      ],
+      color: 'from-orange-500 to-amber-500'
+    },
+    {
       title: 'Teaching Assistant - AWS',
       company: 'San Jose State University',
       period: 'Aug 2025 – Dec 2025',
