@@ -87,7 +87,7 @@ export default function Experience() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             <span className="gradient-text">Professional Experience</span>
           </h2>
-          <p className="text-slate-400 text-lg">2.5+ years of production engineering across full-stack, backend, and AI systems</p>
+          <p className="text-slate-400 text-lg">3+ years of production engineering across full-stack, backend, and AI systems</p>
         </motion.div>
 
         {/* Timeline */}
