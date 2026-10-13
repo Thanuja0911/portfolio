@@ -71,7 +71,7 @@ export default function Hero({ scrollToSection }) {
           </p>
           <p className="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">
             Building intelligent systems at the intersection of AI, backend engineering, and product design. 
-            Master's student at SJSU (May 2026) with 2.5+ years of production experience in React, FastAPI, AWS. 
+            SJSU Master's graduate (May 2026) with 3+ years of production experience in React, FastAPI, AWS. 
           </p>
         </motion.div>
 
