@@ -73,8 +73,8 @@ export default function Contact({ scrollToSection }) {
             <span className="gradient-text">Let's Connect</span>
           </h2>
           <p className="text-slate-400 text-lg leading-relaxed max-w-2xl mx-auto">
-            Graduating May 2026 and seeking full-time opportunities in AI Engineering, Software Engineering, Backend, or DevOps roles. 
-            F1 OPT eligible and based in California, open to relocation to NYC.
+            Currently building GenAI products as a Full Stack GenAI Developer at Astoria AI. 
+            Always happy to chat about AI engineering, full-stack development, or interesting collaborations.
           </p>
         </motion.div>
 
@@ -159,7 +159,7 @@ export default function Contact({ scrollToSection }) {
           <p className="text-sm text-slate-400 mb-2">Current Status</p>
           <div className="flex items-center justify-center gap-2">
             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-            <p className="text-white font-semibold">Graduating May 2026 • Actively Seeking Full-Time Opportunities</p>
+            <p className="text-white font-semibold">Full Stack GenAI Developer at Astoria AI • Open to Connecting</p>
           </div>
         </motion.div>
       </div>
